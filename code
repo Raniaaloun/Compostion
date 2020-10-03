@@ -1,0 +1,47 @@
+class engine:
+    def __init__(self, value):
+        self.__power=value
+    def get(self):
+        return self.__power
+    def set(self, value):
+        self.__power=value
+    def display(self):
+        print(self.__power)
+class car:
+    def __init__(self, n, pr, po):
+        self.__type=n
+        self.__price=pr
+        self.__eng=engine(po)
+    def sale(self, percent):
+        self.__price-=self.__price*percent
+    def __str__(self):
+        return self.__type + ' ' + str(self.__price)+' ' + str(self.__eng.get())
+
+
+
+
+
+class carList:
+    def __init__(self, *arg):
+        self.__Arr=list(arg)
+    def addToList(self, c):
+        self.__Arr.append(c)
+    def display(self):
+        for item in self.__Arr:
+            print(item)
+    def search(self, c):
+        try:
+            return self__Arr.index(c)
+        except ValueError:
+            return -1
+    def getItem(self, index):
+        return self.__Arr[index]
+
+c1 = car("BMW",20000,2500)
+c2 = car("kia",4000,1500)
+
+
+myList= carList(c1,c2)
+myList.display()
+        
+
